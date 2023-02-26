@@ -4,9 +4,9 @@ import themes from '../themes';
 
 const { colors } = themes;
 
-const ScreenContainer = ({ children, backgroundColor=colors.grey.lighter }) => {
+const ScreenContainer = ({ children, backgroundColor=colors.grey.background, paddingLeft = margin['m'] }) => {
     return (
-        <SafeAreaView style={[styles.container, {backgroundColor}]}>
+        <SafeAreaView style={[styles.container, {backgroundColor, paddingLeft: paddingLeft}]}>
             {children}
         </SafeAreaView>
     );
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: margin['xl'],
-        paddingHorizontal: margin['m'],
+        paddingRight: margin['m'],
     },
 });
 

@@ -10,7 +10,7 @@ const { margin, padding, radius } = spacing;
 
 const navigationTabSharedProps = {
     headerTitleAlign: 'center',
-    headerTitleStyle: { fontSize: 35, color: colors.blue.main, fontFamily: 'bold' }, //fontFamily: 'HeadingBold',
+    headerTitleStyle: { fontSize: fontSizes.h1, color: colors.blue.main, fontFamily: 'bold' }, //fontFamily: 'HeadingBold',
     headerTransparent: true,
     tabBarShowLabel: false,
 };
@@ -19,6 +19,7 @@ const Tab = createBottomTabNavigator();
 
 export const BottomTabScreenNavigator = () => (
     <Tab.Navigator
+        initialRouteName="HomeStack"
         screenOptions={{
             tabBarActiveTintColor: colors.orange.light,
             tabBarInactiveTintColor: colors.blue.main,
@@ -55,11 +56,12 @@ export const BottomTabScreenNavigator = () => (
         <Tab.Screen
             name="HomeStack"
             component={HomeStackScreen}
+            initialParams={{screen: "MyVehicles"}}
             options={({route}) => ({
                 headerTitle: 'My Vehicles',
                 tabBarIcon: ({focused}) => (
                     <View style={{backgroundColor: colors.blue.main, padding: padding['m'], position: 'absolute', borderRadius: radius['l']}}>
-                        <Icon name="car" size={30} color={focused ? colors.orange.light : colors.grey.lighter} />
+                        <Icon name="car" size={30} color={focused ? colors.orange.light : colors.grey.main} />
                     </View>
                 ),
                 ...navigationTabSharedProps

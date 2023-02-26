@@ -1,16 +1,15 @@
-import { PixelRatio } from 'react-native';
-import { SPACE } from "./spacing";
+import {Dimensions} from 'react-native';
 
-const screenDensity = PixelRatio.get();
+const { width } = Dimensions.get('window');
+const baseFontSize = width < 375 ? 14 : 16;
 
-const multiplier = 1.618; // Golden Ratio
+const goldenRatio = 1.618;
 
 const fontSizes = {
-    h1: Math.round((screenDensity / 160) * multiplier * SPACE[5]),
-    h2: Math.round((screenDensity / 160) * multiplier * SPACE[4]),
-    h3: Math.round((screenDensity / 160) * multiplier * SPACE[3]),
-    body: Math.round((screenDensity / 160) * multiplier * SPACE[2]),
-    caption: Math.round((screenDensity / 160) * multiplier * SPACE[1]),
+    h1: Math.round(baseFontSize * goldenRatio * 1.4),
+    h2: Math.round(baseFontSize * goldenRatio),
+    regular: Math.round(baseFontSize),
+    small: Math.round(baseFontSize / goldenRatio),
 };
 
 const colors = {
@@ -24,9 +23,8 @@ const colors = {
       lighter: '#FFE399'
     },
     grey: {
-       main: '#B3B3B3',
-       light: '#CCCCCC',
-       lighter: '#E7E7E7'
+       main: '#E7E7E7',
+       background: '#C4C4C4'
     }
 };
 

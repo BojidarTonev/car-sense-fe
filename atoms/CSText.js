@@ -1,8 +1,11 @@
 import { Text } from 'react-native';
+import themes from '../themes';
 
-const CSText = ({ children, fontSize = 16, color = 'black', fontFamily = 'regular', fontWeight = 'normal', style }) => {
+const { fontSizes } = themes;
+
+const CSText = ({ children, fontSize = fontSizes.regular, color = 'black', fontFamily = 'regular', style }) => {
     return (
-        <Text style={[{ fontSize, color, fontWeight, fontFamily }, style]}>
+        <Text style={[{ fontSize, color, fontFamily }, style]}>
             {children}
         </Text>
     );

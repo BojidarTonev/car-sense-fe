@@ -1,6 +1,6 @@
 const GOLDEN_RATIO = 1.618;
 
-export const SPACE = {
+const SPACE = {
     1: 4,
     2: 6,
     3: 10,
